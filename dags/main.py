@@ -15,6 +15,7 @@ async def fetch_ticker_data(session, symbol):
         info["size"] = float(res[0]["size"])
         info["side"] = res[0]["side"]
         info["symbol"] = res[0]["symbol"]
+
         return info
 
 # Асинхронная функция для обработки одного символа
