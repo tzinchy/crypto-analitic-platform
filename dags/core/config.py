@@ -1,12 +1,11 @@
 from dataclasses import dataclass
-import os 
 from dotenv import load_dotenv
 import os
 
 # Загружаем переменные из .env файла
 load_dotenv()
 
-BINANCE_API_URL_CURRENT_COIN_PRICE = 'https://api.binance.com/api/v3/ticker/price?symbol='
+BINANCE_API_URL_CURRENT_COIN_PRICE = f"https://api.bitget.com/api/v2/mix/market/fills?symbol=*&productType=usdt-futures"
 
 BINANCE_PAIRS = {
     "BTCUSDT": 1,
@@ -28,6 +27,6 @@ class Settings:
     @property
     def DATABASE_URL(self) -> str:
         return f"postgresql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
-    
-settings = Settings() 
+
+settings = Settings()
 print(settings.DATABASE_URL)
